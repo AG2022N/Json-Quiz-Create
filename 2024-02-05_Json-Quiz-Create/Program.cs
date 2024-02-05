@@ -2,11 +2,10 @@
 {
     static void Main()
     {
-        for (int i = 1; i < 5;)
+        for (int i = 1; i <= 5;)
         {
-            string filePath = (@"Questions/Question.json");
-            //string filePath = (@"Questions/Question{0}.json", i.ToString());
-            Convert_object_to_json(filePath);
+            string Filepath = (@"Questions/Question" + i + ".json");
+            ObjectToJson(Filepath);
             i++;
         }
         Console.Write("Complete!");
@@ -14,20 +13,20 @@
     }
     public class QuizQuestion()
     {
-        public string question { get; set; }
-        public string correctAnswer { get; set; }
-        public string correctAnswerExplanation { get; set; }
+        public string Question { get; set; }
+        public string CorrectAnswer { get; set; }
+        public string CorrectAnswerExplanation { get; set; }
     }
-    static QuizQuestion quizQuestionCreate()
+    static QuizQuestion QuizQuestionCreate()
     {
         var q = new QuizQuestion();
         return q;
     }
-    static void Convert_object_to_json(string filePath)
+    static void ObjectToJson(string Filepath)
     {
-        string path = filePath;
-        var question = quizQuestionCreate();
-        var jsonFormating = Newtonsoft.Json.JsonConvert.SerializeObject(question);
-        System.IO.File.WriteAllText(path, jsonFormating);
+        string Path = Filepath;
+        QuizQuestion Question = QuizQuestionCreate();
+        var JsonFormating = Newtonsoft.Json.JsonConvert.SerializeObject(Question);
+        System.IO.File.WriteAllText(Path, JsonFormating);
     }
 }
