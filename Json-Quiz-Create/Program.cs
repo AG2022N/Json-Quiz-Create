@@ -3,9 +3,9 @@
     static void Main()
     {
         Console.WriteLine("Writing...");
-        for (int i = 1; i <= 5;)
+        for (int i = 1; i <= 6;)
         {
-            Console.WriteLine(i + "/5");
+            Console.WriteLine(i + "/6");
             string Filepath = (@"Questions/Question" + i + ".json");
             ObjectToJson(Filepath);
             i++;
@@ -21,7 +21,7 @@
     }
     static QuizQuestion QuizQuestionCreate()
     {
-        QuizQuestion q = new QuizQuestion("", "", "");
+        QuizQuestion q = new QuizQuestion("QuestionTemp", "CorrectAnswerTemp", "CorrectAnswerExplanationTemp");
         return q;
     }
     static void ObjectToJson(string Filepath)
