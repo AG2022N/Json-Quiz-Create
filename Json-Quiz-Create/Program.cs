@@ -13,15 +13,16 @@
         Console.Write("Finished!");
         Console.ReadKey();
     }
-    public class QuizQuestion(string ConstQuestion, string ConstCorrectAnswer, string ConstCorrectAnswerExplanation)
+    public class QuizQuestion(string ConstQuestion, string ConstAnswerOptions, string ConstCorrectAnswer, string ConstCorrectAnswerExplanation)
     {
         public string Question = ConstQuestion;
+        public string AnswerOptions = ConstAnswerOptions;
         public string CorrectAnswer = ConstCorrectAnswer;
         public string CorrectAnswerExplanation = ConstCorrectAnswerExplanation;
     }
     static QuizQuestion QuizQuestionCreate()
     {
-        QuizQuestion q = new QuizQuestion("QuestionTemp", "CorrectAnswerTemp", "CorrectAnswerExplanationTemp");
+        QuizQuestion q = new QuizQuestion("QuestionTemp", "AnswerOptionsTemp", "CorrectAnswerTemp", "CorrectAnswerExplanationTemp");
         return q;
     }
     static void ObjectToJson(string Filepath)
