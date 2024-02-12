@@ -2,31 +2,33 @@
 {
     static void Main()
     {
+        Console.WriteLine("Writing...");
         for (int i = 1; i <= 5;)
         {
+            Console.WriteLine(i + "/5");
             string Filepath = (@"Questions/Question" + i + ".json");
             ObjectToJson(Filepath);
             i++;
         }
-        Console.Write("Complete!");
+        Console.Write("Finished!");
         Console.ReadKey();
     }
-    public class QuizQuestion()
+    public class QuizQuestion(string ConstQuestion, string ConstCorrectAnswer, string ConstCorrectAnswerExplanation)
     {
-        public string Question { get; set; }
-        public string CorrectAnswer { get; set; }
-        public string CorrectAnswerExplanation { get; set; }
+        public string Question = ConstQuestion;
+        public string CorrectAnswer = ConstCorrectAnswer;
+        public string CorrectAnswerExplanation = ConstCorrectAnswerExplanation;
     }
     static QuizQuestion QuizQuestionCreate()
     {
-        var q = new QuizQuestion();
+        QuizQuestion q = new QuizQuestion("", "", "");
         return q;
     }
     static void ObjectToJson(string Filepath)
     {
         string Path = Filepath;
         QuizQuestion Question = QuizQuestionCreate();
-        var JsonFormating = Newtonsoft.Json.JsonConvert.SerializeObject(Question);
-        System.IO.File.WriteAllText(Path, JsonFormating);
+        var JsonFormatting = Newtonsoft.Json.JsonConvert.SerializeObject(Question);
+        System.IO.File.WriteAllText(Path, JsonFormatting);
     }
 }
